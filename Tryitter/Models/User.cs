@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
@@ -14,6 +15,7 @@ namespace Tryitter.Models
         public int UserId { get; set; }
         [MinLength(3), MaxLength(30)]
         public string? Name { get; set; }
+        // [Index(IsUnique = true)]
         [MinLength(3), MaxLength(30)]
         public string? Email { get; set; }
         [MinLength(8)]
