@@ -7,15 +7,15 @@ namespace Tryitter.Models
     {
         [Key]
         public int PostId { get; set; }
-        [MinLength(1), MaxLength(30)]
+        [MaxLength(30)]
         public string? Titulo { get; set; }
-        [MinLength(1), MaxLength(280)]
+        [MaxLength(300)]
         public string? Descricao { get; set; }
+        public string? ImageUrl { get; set; }
 
         public DateTime DataPost { get; set; }
+        public int UserId { get; set; }
 
-        [JsonIgnore]
-        public ICollection<Categoria>? Categoria { get; set; }
         [JsonIgnore]
         public User? User { get; set; }
     }
