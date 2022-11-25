@@ -60,5 +60,20 @@ namespace Tryitter.Controllers
             _context.SaveChanges();
             return Ok();
         }
+
+        [HttpDelete("{id}")]
+        public ActionResult<User> Delete(int id)
+        {
+            var user = _context.Users!.FirstOrDefault(p => p.UserId == id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            _context.Users!.Remove(user);
+            _context.SaveChanges();
+            return user;
+        }
     }
 }
