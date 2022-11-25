@@ -18,6 +18,8 @@ namespace Tryitter.Models
         public string? Email { get; set; }
         [MinLength(8)]
         public string? ModuloAtual { get; set; }
+        [MaxLength(30)]
+        public string? StatusPersonalizado { get; set; }
         [MinLength(8)]
         public string? Password { get; set; }
         [JsonIgnore]
