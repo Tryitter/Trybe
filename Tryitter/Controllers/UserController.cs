@@ -24,5 +24,18 @@ namespace Tryitter.Controllers
             }
             return Ok(users);
         }
+
+        [HttpGet("{id}", Name ="ObterUsuario")]
+        public async Task<ActionResult<User>> GetById(int id )
+        {
+            var users = await _context.Users!.AsNoTracking()
+                .FirstOrDefaultAsync(p => p.UserId == id);
+
+            if(users == null)
+            {
+                return NotFound("Nenhum usuário encontrado");
+            }
+            return Ok(users);
+        }
     }
 }
