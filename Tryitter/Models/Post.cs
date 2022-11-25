@@ -7,7 +7,9 @@ namespace Tryitter.Models
     {
         [Key]
         public int PostId { get; set; }
+        [MinLength(1), MaxLength(30)]
         public string? Titulo { get; set; }
+        [MinLength(1), MaxLength(280)]
         public string? Descricao { get; set; }
 
         public DateTime DataPost { get; set; }

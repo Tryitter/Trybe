@@ -7,7 +7,9 @@ namespace Tryitter.Models
     {
         [Key]
         public int CategoriaId { get; set; }
+        [MinLength(3)]
         public string? Nome { get; set; }
+        [MinLength(3)]
         public string? Descricao { get; set; }
         [JsonIgnore]
         public ICollection<Post>? Posts { get; set; }
