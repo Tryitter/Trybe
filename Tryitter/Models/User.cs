@@ -12,6 +12,7 @@ namespace Tryitter.Models
             Posts = new Collection<Post>();
         }
         [Key]
+        [JsonIgnore]
         public int UserId { get; set; }
         [MinLength(3), MaxLength(30)]
         public string? Name { get; set; }

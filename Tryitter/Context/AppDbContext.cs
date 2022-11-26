@@ -21,6 +21,10 @@ namespace Tryitter.Context
                 .HasOne<User>(u => u.User)
                     .WithMany(p => p.Posts)
                         .HasForeignKey(p => p.UserId);
+
+            modelBuilder.Entity<User>()
+                .HasIndex(u => u.Email)
+                    .IsUnique();
         }
     }
 }

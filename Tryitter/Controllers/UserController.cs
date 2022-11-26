@@ -25,13 +25,13 @@ namespace Tryitter.Controllers
             return Ok(users);
         }
 
-        [HttpGet("{id}", Name ="ObterUsuario")]
-        public async Task<ActionResult<User>> GetById(int id )
+        [HttpGet("{id}", Name = "ObterUsuario")]
+        public async Task<ActionResult<User>> GetById(int id)
         {
             var users = await _context.Users!.AsNoTracking()
                 .FirstOrDefaultAsync(p => p.UserId == id);
 
-            if(users == null)
+            if (users == null)
             {
                 return NotFound("Nenhum usuário encontrado");
             }
@@ -39,8 +39,13 @@ namespace Tryitter.Controllers
         }
 
         [HttpPost]
-        public ActionResult Post([FromBody]User user) 
+        public ActionResult Post([FromBody] User user)
         {
+            var emailExist = _context.Users!.FirstOrDefault(u => u.Email == user.Email);
+            if (emailExist != null)
+            {
+                return BadRequest("Email já esta cadastrado");
+            }
             _context.Users!.Add(user);
             _context.SaveChanges();
 
@@ -49,9 +54,9 @@ namespace Tryitter.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult Put(int id,[FromBody] User user)
+        public ActionResult Put(int id, [FromBody] User user)
         {
-            if( id != user.UserId)
+            if (id != user.UserId)
             {
                 return BadRequest();
             }
