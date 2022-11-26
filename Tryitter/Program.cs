@@ -5,6 +5,12 @@ using Tryitter.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var connectionStringMysql = builder.Configuration.GetConnectionString("MysqlConnection");
+builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(
+    connectionStringMysql,
+    ServerVersion.AutoDetect(connectionStringMysql))
+);
+
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddControllers();
@@ -29,17 +35,7 @@ builder.Services.AddSwaggerGen();
 //    };
 //});
 
-var connectionString = builder.Configuration
-                       .GetConnectionString("DefaultConnection");
-
-builder.Services.AddDbContext<AppDbContext>(options =>
-                 options
-                 .UseMySql(connectionString,
-                 ServerVersion.AutoDetect(connectionString)));
-
 var app = builder.Build();
-
-// add User Controller
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
