@@ -47,5 +47,18 @@ namespace Tryitter.Controllers
             return new CreatedAtRouteResult("ObterUsuario",
                 new { id = post.PostId }, post);
         }
+
+        [HttpPut("{id}")]
+        public ActionResult Put(int id, [FromBody] Post post)
+        {
+            if (id != post.PostId)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(post).State = EntityState.Modified;
+            _context.SaveChanges();
+            return Ok();
+        }
     }
 }
