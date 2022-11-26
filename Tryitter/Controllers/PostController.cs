@@ -37,5 +37,15 @@ namespace Tryitter.Controllers
             }
             return Ok(post);
         }
+
+        [HttpPost]
+        public ActionResult Post([FromBody] Post post)
+        {
+            _context.Posts!.Add(post);
+            _context.SaveChanges();
+
+            return new CreatedAtRouteResult("ObterUsuario",
+                new { id = post.PostId }, post);
+        }
     }
 }
