@@ -1,18 +1,13 @@
 ﻿using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
-using Tryitter.Constants;
 
 namespace Tryitter.Services
 {
     public class JwtAuthenticationManager
     {
-        public JwtAuthResponse Authenticate(string userName, string password)
+        public JwtAuthResponse Authenticate(string email)
         {
 
             var tokenExpiryTimeStamp = DateTime.UtcNow.AddMinutes(Constants.Constants.JWT_TOKEN_VALIDITY_MINS);
@@ -23,7 +18,7 @@ namespace Tryitter.Services
             {
                 Subject = new ClaimsIdentity(new List<Claim>
                 {
-                    new Claim("username", userName),
+                    new Claim("Email", email),
                     new Claim(ClaimTypes.PrimaryGroupSid, "User Group 01")
                 }),
                 Expires = tokenExpiryTimeStamp,
@@ -35,8 +30,8 @@ namespace Tryitter.Services
 
             return new JwtAuthResponse
             {
-                token = token,
-                user_name = userName,
+                Token = token,
+                Email = email,
             };
         }
     }

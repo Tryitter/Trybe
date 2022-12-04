@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Tryitter
+﻿namespace Tryitter
 {
     [Serializable]
     public class JwtAuthResponse
     {
-        public string? token { get; set; }
-        public string? user_name { get; set; }
+        public string Token { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
     }
 }

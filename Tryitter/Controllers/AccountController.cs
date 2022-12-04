@@ -32,7 +32,7 @@ namespace Tryitter.Controllers
             if (existingUser != null)
             {
                 var jwtAuthenticationManager = new JwtAuthenticationManager();
-                var authResult = jwtAuthenticationManager.Authenticate(authenticationRequest.Email!, authenticationRequest.Password!);
+                var authResult = jwtAuthenticationManager.Authenticate(authenticationRequest.Email!);
                 return Ok(authResult);
             }
             else
