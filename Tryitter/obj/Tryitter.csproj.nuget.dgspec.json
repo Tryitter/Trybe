@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/home/c_rafael/test/Trybe/Tryitter/Tryitter.csproj": {}
+    "C:\\Users\\paolo\\Tryitter\\Tryitter\\Tryitter.csproj": {}
   },
   "projects": {
-    "/home/c_rafael/test/Trybe/Tryitter/Tryitter.csproj": {
+    "C:\\Users\\paolo\\Tryitter\\Tryitter\\Tryitter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/c_rafael/test/Trybe/Tryitter/Tryitter.csproj",
+        "projectUniqueName": "C:\\Users\\paolo\\Tryitter\\Tryitter\\Tryitter.csproj",
         "projectName": "Tryitter",
-        "projectPath": "/home/c_rafael/test/Trybe/Tryitter/Tryitter.csproj",
-        "packagesPath": "/home/c_rafael/.nuget/packages/",
-        "outputPath": "/home/c_rafael/test/Trybe/Tryitter/obj/",
+        "projectPath": "C:\\Users\\paolo\\Tryitter\\Tryitter\\Tryitter.csproj",
+        "packagesPath": "C:\\Users\\paolo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\paolo\\Tryitter\\Tryitter\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/c_rafael/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\paolo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -38,6 +44,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.11, )"
@@ -61,6 +75,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.14.1, )"
             }
           },
           "imports": [
@@ -82,7 +100,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.401/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
