@@ -2,6 +2,10 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Primitives;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Net.Http.Headers;
 using Tryitter.Context;
 using Tryitter.Models;
 
@@ -27,6 +31,18 @@ namespace Tryitter.Controllers
                 return NotFound("Nenhum usuário encontrado");
             }
             return Ok(posts);
+        }
+
+        [HttpGet("last")]
+        public async Task<ActionResult<IEnumerable<Post>>> GetLast()
+        {
+            var posts = await _context.Posts!.AsNoTracking().ToListAsync();
+            if (posts == null)
+            {
+                return NotFound("Nenhum usuário encontrado");
+            }
+            var last = posts.LastOrDefault();
+            return Ok(last);
         }
 
         [HttpGet("{id}", Name = "ObterPost")]
@@ -65,9 +81,12 @@ namespace Tryitter.Controllers
             return Ok();
         }
 
+        // validate the user logged in is the author of the post
         [HttpDelete("{id}")]
         public ActionResult<Post> Delete(int id)
         {
+
+
             var post = _context.Posts!.FirstOrDefault(p => p.PostId == id);
 
             if (post == null)
