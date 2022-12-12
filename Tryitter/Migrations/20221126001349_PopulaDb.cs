@@ -16,6 +16,7 @@ namespace Tryitter.Migrations
             // posts
             migrationBuilder.Sql("Insert into Posts(Titulo, Descricao, ImageUrl, DataPost, UserId) Values ('Post do Carlos', 'Primeiro Post do Carlos', 'https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png', now(), 1)");
             migrationBuilder.Sql("Insert into Posts(Titulo, Descricao, ImageUrl, DataPost, UserId) Values ('Post do Paolo', 'Primeiro Post do Paolo', 'https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png', now(), 2)");
+            migrationBuilder.Sql("Insert into Posts(Titulo, Descricao, ImageUrl, DataPost, UserId) Values ('Post do Paolo', 'Segundo Post do Paolo', 'https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png', now(), 2)");
             migrationBuilder.Sql("Insert into Posts(Titulo, Descricao, ImageUrl, DataPost, UserId) Values ('Post do Luis', 'Primeiro Post do Luis', 'https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png', now(), 3)");
 
         }

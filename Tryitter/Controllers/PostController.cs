@@ -33,16 +33,27 @@ namespace Tryitter.Controllers
             return Ok(posts);
         }
 
-        [HttpGet("last")]
-        public async Task<ActionResult<IEnumerable<Post>>> GetLast()
+        [HttpGet("last/{id}")]
+        public async Task<ActionResult<IEnumerable<Post>>> GetLast(int id)
         {
-            var posts = await _context.Posts!.AsNoTracking().ToListAsync();
+            var posts = await _context.Posts!.AsNoTracking().Where(p => p.UserId == id).ToListAsync();
             if (posts == null)
             {
-                return NotFound("Nenhum usuário encontrado");
+                return NotFound("Nenhum post encontrado");
             }
             var last = posts.LastOrDefault();
             return Ok(last);
+        }
+
+        [HttpGet("user/{id}")]
+        public async Task<ActionResult<IEnumerable<Post>>> GetPostsByUser(int id)
+        {
+            var posts = await _context.Posts!.AsNoTracking().Where(p => p.UserId == id).ToListAsync();
+            if (posts == null)
+            {
+                return NotFound("Nenhum post encontrado");
+            }
+            return Ok(posts);
         }
 
         [HttpGet("{id}", Name = "ObterPost")]
