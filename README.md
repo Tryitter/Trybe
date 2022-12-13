@@ -15,10 +15,10 @@ O nosso time ficou responsável pelo backend da aplicação, que consiste em cri
 > 2. Entre na pasta do repositório que você acabou de clonar: 
 * `cd Trybe/Tryitter`
 
-> 3. O banco de dados esta no docker então rode o serviço com o comando: 
+> 3. O banco de dados usando MSSQL esta configurado com um docker-compose que pode ser criado com o comando: 
 * `docker-compose up -d`
 
-> 4. Após subir o banco, utilize o comando abaixo para popular e inicializar nosso banco Tryitter:
+> 4. Após a execução do docker-compose, utilize o comando abaixo para popular e inicializar nosso banco Tryitter usando a CLI:
 * `dotnet ef database update`
 
 > 5. Inicialize a aplicação com o comando:
@@ -47,7 +47,7 @@ O nosso time ficou responsável pelo backend da aplicação, que consiste em cri
     "password": "12345678",
   }
 ```
-✨ **Atenção:** Para autorizar as rotas passe o token da seguinte forma `Bearer token`, conforme a imagem a seguir:
+✨ **Atenção:** Para autorizar as rotas o token deve ser informado da seguinte forma `Bearer token`, conforme a imagem a seguir:
 ![Autorização](./public/JWT.png)
 
 ---
@@ -78,7 +78,7 @@ Após o login e ter passado o token JWT você tem todas as rotas disponíveis pa
 
 5. > A quinta rota é para verificar um post específico através de seu Id.
 
-6. > A sexta rota serve para você editar um post, passando o Id deste post e passar o seguinte corpo
+6. > A sexta rota serve para você editar um post, passando o Id deste post e passar o seguinte corpo em formato json:
 
 ```json
   {
