@@ -43,6 +43,7 @@ namespace Tryitter.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult Post([FromBody] User user)
         {
             var emailExist = _context.Users!.FirstOrDefault(u => u.Email == user.Email);
